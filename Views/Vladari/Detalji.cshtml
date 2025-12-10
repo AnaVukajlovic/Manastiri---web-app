@@ -1,0 +1,25 @@
+﻿@model NemanjiciWebApp.Models.Vladar
+
+@{
+    ViewData["Title"] = Model.Ime;
+}
+
+<h1>@Model.Ime</h1>
+
+<h4>Period vladavine: @Model.PeriodVladavine</h4>
+
+@if (!string.IsNullOrEmpty(Model.PutanjaSlike))
+{
+    <img src="@Model.PutanjaSlike" alt="@Model.Ime" class="img-fluid mb-3" />
+}
+
+<p>
+    @Model.KratakOpis
+</p>
+
+<a asp-controller="Dinastija"
+   asp-action="Stablo"
+   class="btn btn-secondary">
+    ← Nazad na porodično stablo
+</a>
+

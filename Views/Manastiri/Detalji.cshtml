@@ -1,0 +1,26 @@
+﻿@model NemanjiciWebApp.Models.Manastir
+
+@{
+    ViewData["Title"] = Model.Naziv;
+}
+
+<section class="sekcija">
+    <div class="container manastir-detalji">
+        <div class="manastir-detalji-slika">
+            <img src="@Model.PutanjaSlike"
+                 alt="@Model.Naziv"
+                 class="img-fluid" />
+        </div>
+        <div class="manastir-detalji-tekst">
+            <h1>@Model.Naziv</h1>
+            <p class="manastir-detalji-meta">
+                <strong>Ктитор:</strong> @Model.Ktitor<br />
+                <strong>Period:</strong> @Model.Period<br />
+                <strong>Lokacija:</strong> @Model.Lokacija
+            </p>
+            <p>@Model.KratakOpis</p>
+
+            <a asp-action="Index" class="btn-sekundarno">← Nazad na listu manastira</a>
+        </div>
+    </div>
+</section>

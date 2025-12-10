@@ -1,0 +1,32 @@
+﻿@model NemanjiciWebApp.Models.ClanDinastije
+
+@{
+    ViewData["Title"] = Model.Ime;
+}
+
+<section class="sekcija">
+    <div class="container">
+        <h1>@Model.Ime</h1>
+
+        @if (!string.IsNullOrEmpty(Model.Uloga))
+        {
+            <p><strong>Uloga:</strong> @Model.Uloga</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Period))
+        {
+            <p><strong>Period:</strong> @Model.Period</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Napomena))
+        {
+            <p>@Model.Napomena</p>
+        }
+
+        <a asp-controller="Dinastija"
+           asp-action="Stablo"
+           class="btn-sekundarno">
+            ← Nazad na porodično stablo
+        </a>
+    </div>
+</section>

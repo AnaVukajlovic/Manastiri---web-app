@@ -1,0 +1,28 @@
+﻿@model NemanjiciWebApp.Models.Proizvod
+
+@{
+    ViewData["Title"] = Model.Naziv;
+}
+
+<h1>@Model.Naziv</h1>
+
+@if (!string.IsNullOrEmpty(Model.PutanjaSlike))
+{
+    <img src="@Model.PutanjaSlike" alt="@Model.Naziv" class="img-fluid mb-3" />
+}
+
+<h4 class="text-muted">@Model.Kategorija</h4>
+<p class="fw-bold">@Model.Cena.ToString("0.00") RSD</p>
+
+<p>@Model.Opis</p>
+
+<p><strong>Napomena:</strong> Ovo je demo web shop za portfolio; proizvodi i porudžbine su fiktivni.</p>
+
+<a class="btn btn-secondary" href="@Url.Action("Index", "Shop")">← Nazad u shop</a>
+<form asp-action="DodajUKorpu" asp-controller="Shop" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-success me-2">Dodaj u korpu</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Shop")">Nazad u shop</a>
+</form>
+
+<p class="mt-3"><strong>Napomena:</strong> Ovo je demo web shop; porudžbine nisu stvarne.</p>

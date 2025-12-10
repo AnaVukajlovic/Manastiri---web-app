@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NemanjiciWebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NemanjiciWebApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark glavna-nav">
+            <div class="container-fluid">
+                <a class="navbar-brand logo-text" asp-controller="Home" asp-action="Index">
+                    Dinastija Nemanjića
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Početna</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Vladari" asp-action="Index">Vladari</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Manastiri" asp-action="Index">Manastiri i kultura</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Dinastija" asp-action="Stablo">Porodično stablo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Shop" asp-action="Index">Web shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Shop" asp-action="Korpa">Korpa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="About">O projektu</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-wrapper">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <span class="footer-brand">NemanjiciWebApp</span>
+                <span class="footer-text">Demo projekat o dinastiji Nemanjića i web shopu suvenira.</span>
+            </div>
+            <div class="footer-right">
+                <a asp-controller="Home" asp-action="About">O projektu</a>
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 NemanjiciWebApp</span>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

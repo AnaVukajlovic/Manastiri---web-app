@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Porodično stablo Nemanjića";
+}
+
+<section class="sekcija">
+    <div class="container">
+        <header class="sekcija-header">
+            <h1>Porodično stablo dinastije Немањића</h1>
+            <p>
+                Shematski prikaz osnovnih grana porodičnog stabla dinastije Немањића.
+                Klikom na ime vladara možeš da odeš na njegov detaljniji prikaz (ako postoji u delu “Vladari”).
+            </p>
+        </header>
+
+        <div class="stablo-wrapper">
+            <div class="stablo">
+                <ul>
+                    <li>
+                        <div class="cvor">
+                            <span class="cvor-ime">
+                                <a asp-controller="Vladari"
+                                   asp-action="Detalji"
+                                   asp-route-id="1"
+                                   asp-route-source="stablo">
+                                    Стефан Немања
+                                </a>
+                            </span>
+                            <span class="cvor-info">osnivač dinastije</span>
+                        </div>
+                        <ul>
+                            <!-- 1) Vukan (najstariji sin) -->
+                            <li>
+                                <div class="cvor">
+                                    <span class="cvor-ime">Вукан Немањић</span>
+                                    <span class="cvor-info">najstariji sin Stefana Nemanje</span>
+                                </div>
+                            </li>
+
+                            <!-- 2) Stefan Prvovenčani (srednji sin) -->
+                            <li>
+                                <div class="cvor">
+                                    <span class="cvor-ime">
+                                        <a asp-controller="Vladari"
+                                           asp-action="Detalji"
+                                           asp-route-id="2"
+                                           asp-route-source="stablo">
+                                            Стефан Првовенчани
+                                        </a>
+                                    </span>
+                                    <span class="cvor-info">prvi krunisani kralj</span>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="cvor">
+                                            <span class="cvor-ime">Стефан Радослав</span>
+                                            <span class="cvor-info">sin Prvovenčanog</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cvor">
+                                            <span class="cvor-ime">Стефан Владислав</span>
+                                            <span class="cvor-info">brat Radoslava</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cvor">
+                                            <span class="cvor-ime">
+                                                <a asp-controller="Vladari"
+                                                   asp-action="Detalji"
+                                                   asp-route-id="5"
+                                                   asp-route-source="stablo">
+                                                    Стефан Урош I
+                                                </a>
+                                            </span>
+                                            <span class="cvor-info">sin Stefana Prvovenčanog</span>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <div class="cvor">
+                                                    <span class="cvor-ime">
+                                                        <a asp-controller="Vladari"
+                                                           asp-action="Detalji"
+                                                           asp-route-id="6"
+                                                           asp-route-source="stablo">
+                                                            Стефан Драгутин
+                                                        </a>
+                                                    </span>
+                                                    <span class="cvor-info">stariji sin Uroša I</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="cvor">
+                                                    <span class="cvor-ime">
+                                                        <a asp-controller="Vladari"
+                                                           asp-action="Detalji"
+                                                           asp-route-id="7"
+                                                           asp-route-source="stablo">
+                                                            Стефан Милутин
+                                                        </a>
+                                                    </span>
+                                                    <span class="cvor-info">mlađi sin Uroša I</span>
+                                                </div>
+                                                <ul>
+                                                    <li>
+                                                        <div class="cvor">
+                                                            <span class="cvor-ime">
+                                                                <a asp-controller="Vladari"
+                                                                   asp-action="Detalji"
+                                                                   asp-route-id="8"
+                                                                   asp-route-source="stablo">
+                                                                    Стефан Урош III Дечански
+                                                                </a>
+                                                            </span>
+                                                            <span class="cvor-info">sin kralja Milutina</span>
+                                                        </div>
+                                                        <ul>
+                                                            <li>
+                                                                <div class="cvor">
+                                                                    <span class="cvor-ime">
+                                                                        <a asp-controller="Vladari"
+                                                                           asp-action="Detalji"
+                                                                           asp-route-id="9"
+                                                                           asp-route-source="stablo">
+                                                                            Стефан Душан
+                                                                        </a>
+                                                                    </span>
+                                                                    <span class="cvor-info">car Dušan Silni</span>
+                                                                </div>
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="cvor">
+                                                                            <span class="cvor-ime">
+                                                                                <a asp-controller="Vladari"
+                                                                                   asp-action="Detalji"
+                                                                                   asp-route-id="10"
+                                                                                   asp-route-source="stablo">
+                                                                                    Стефан Урош V
+                                                                                </a>
+                                                                            </span>
+                                                                            <span class="cvor-info">Uroš Nejaki</span>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- 3) Sveti Sava (najmlađi sin) -->
+                            <li>
+                                <div class="cvor">
+                                    <span class="cvor-ime">Свети Сава</span>
+                                    <span class="cvor-info">najmlađi sin, prvi srpski arhiepiskop</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

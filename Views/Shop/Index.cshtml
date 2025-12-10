@@ -1,0 +1,67 @@
+﻿@model IEnumerable<NemanjiciWebApp.Models.Proizvod>
+
+@{
+    ViewData["Title"] = "Nemanjići – Web shop";
+    var kategorije = ViewBag.Kategorije as List<string>;
+    string izabranaKategorija = ViewBag.IzabranaKategorija as string;
+    string pretraga = ViewBag.Pretraga as string;
+}
+
+<h1>Web shop – Nemanjići</h1>
+<p>Ovo je demo prodavnica sa izmišljenim knjigama i suvenirima inspirisanim dinastijom Nemanjića.</p>
+
+<form class="row mb-4" method="get">
+    <div class="col-md-4 mb-2">
+        <label class="form-label">Kategorija</label>
+        <select name="kategorija" class="form-select">
+            <option value="">Sve kategorije</option>
+            @if (kategorije != null)
+            {
+                foreach (var kat in kategorije)
+                {
+                    <option value="@kat" selected="@(kat == izabranaKategorija)">
+                        @kat
+                    </option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="col-md-4 mb-2">
+        <label class="form-label">Pretraga po nazivu</label>
+        <input type="text" name="pretraga" class="form-control" value="@pretraga" placeholder="Unesi naziv proizvoda..." />
+    </div>
+
+    <div class="col-md-4 d-flex align-items-end mb-2">
+        <button type="submit" class="btn btn-primary me-2">Primeni filtere</button>
+        <a href="@Url.Action("Index", "Shop")" class="btn btn-outline-secondary">Reset</a>
+    </div>
+</form>
+
+<div class="row">
+    @foreach (var proizvod in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                @if (!string.IsNullOrEmpty(proizvod.PutanjaSlike))
+                {
+                    <img class="card-img-top" src="@proizvod.PutanjaSlike" alt="@proizvod.Naziv" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@proizvod.Naziv</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@proizvod.Kategorija</h6>
+                    <p class="card-text">@proizvod.Opis</p>
+                    <p class="fw-bold">@proizvod.Cena.ToString("0.00") RSD</p>
+                    <a class="btn btn-primary" href="@Url.Action("Detalji", "Shop", new { id = proizvod.Id })">
+                        Detaljnije
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <p>Nema proizvoda za zadate filtere.</p>
+}

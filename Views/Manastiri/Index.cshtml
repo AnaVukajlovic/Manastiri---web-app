@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NemanjiciWebApp.Models.Manastir>
+
+@{
+    ViewData["Title"] = "Manastiri i kultura";
+    var trenutnaPretraga = ViewData["TrenutnaPretraga"] as string;
+    var trenutnoSortiranje = ViewData["TrenutnoSortiranje"] as string;
+}
+
+<section class="manastiri-hero">
+    <div class="container manastiri-hero-inner">
+        <div class="manastiri-hero-text">
+            <h1>Manastiri doba Nemanјића</h1>
+            <p>
+                Manastiri su duhovni i kulturni stubovi srednjovekovne Srbije. Kroz njihovu gradnju i freske
+                vidi se moć i nasleđe dinastije Немањића.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="sekcija">
+    <div class="container">
+        <header class="sekcija-header">
+            <h2>Ruta kroz manastire</h2>
+            <p>Pretraži i sortitaj manastire, a klikom na naziv otvori detaljan prikaz.</p>
+        </header>
+
+        <form asp-action="Index" method="get" class="manastiri-filter-form">
+            <input type="text"
+                   name="pretraga"
+                   value="@trenutnaPretraga"
+                   placeholder="Pretraga po nazivu, ktitoru ili lokaciji..." />
+            <select name="sort">
+    <option value="">Sortiranje: naziv (A–Š)</option>
+    <option value="naziv_desc" selected="@(trenutnoSortiranje == "naziv_desc")">Naziv (Š–A)</option>
+    <option value="period_asc" selected="@(trenutnoSortiranje == "period_asc")">Period (rastuće)</option>
+    <option value="period_desc" selected="@(trenutnoSortiranje == "period_desc")">Period (opadajuće)</option>
+</select>
+
+            <button type="submit" class="btn-primarno">Primeni</button>
+        </form>
+
+        <div class="manastiri-ruta">
+            @foreach (var m in Model)
+            {
+                <article class="manastir-stanica">
+                    <div class="manastir-marker"></div>
+                    <div class="manastir-sadrzaj">
+                        <h3>
+                            <a asp-action="Detalji" asp-route-id="@m.Id" class="manastir-link">
+                                @m.Naziv
+                            </a>
+                        </h3>
+                        <p>@m.KratakOpis</p>
+                        <p class="manastir-meta">
+                            Ktitor: @m.Ktitor<br />
+                            Period: @m.Period<br />
+                            Lokacija: @m.Lokacija
+                        </p>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>

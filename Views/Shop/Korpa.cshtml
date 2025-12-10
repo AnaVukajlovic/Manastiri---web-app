@@ -1,0 +1,50 @@
+﻿@model IEnumerable<NemanjiciWebApp.Models.StavkaKorpe>
+
+@{
+    ViewData["Title"] = "Korpa";
+    var ukupno = Model.Sum(s => s.Cena * s.Kolicina);
+}
+
+<h1>Korpa</h1>
+
+@if (!Model.Any())
+{
+    <p>Vaša korpa je trenutno prazna.</p>
+    <a class="btn btn-primary" href="@Url.Action("Index", "Shop")">Idi u shop</a>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Proizvod</th>
+                <th>Cena</th>
+                <th>Količina</th>
+                <th>Ukupno</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stavka in Model)
+            {
+                <tr>
+                    <td>@stavka.Naziv</td>
+                    <td>@stavka.Cena.ToString("0.00") RSD</td>
+                    <td>@stavka.Kolicina</td>
+                    <td>@(stavka.Cena* stavka.Kolicina).ToString("0.00") RSD</td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="@Url.Action("UkloniIzKorpe", "Shop", new { id = stavka.ProizvodId })">
+                            Ukloni
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4>Ukupno: @ukupno.ToString("0.00") RSD</h4>
+
+    <a class="btn btn-secondary me-2" href="@Url.Action("Index", "Shop")">Nastavi kupovinu</a>
+    <a class="btn btn-outline-danger me-2" href="@Url.Action("OcistiKorpu", "Shop")">Isprazni korpu</a>
+    <button class="btn btn-success" disabled>Demo – plaćanje nije omogućeno</button>
+}

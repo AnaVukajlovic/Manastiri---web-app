@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Početna";
+}
+
+<section class="home-hero">
+    <div class="container-fluid hero-grid">
+        <div class="hero-tekst">
+            <h1>Dinastija Nemanjića</h1>
+            <p>
+                Interaktivna web aplikacija o vladarima, manastirima i kulturi srednjovekovne Srbije,
+                sa edukativnim sadržajima i demo web shopom suvenira.
+            </p>
+            <div class="hero-dugmad">
+                <a asp-controller="Vladari" asp-action="Index" class="btn-primarno">Istraži vladare</a>
+                <a asp-controller="Shop" asp-action="Index" class="btn-sekundarno">Poseti web shop</a>
+            </div>
+        </div>
+        <div class="hero-panel">
+            <div class="hero-kartica">
+                <h2>Šta možeš da otkriješ?</h2>
+                <ul>
+                    <li>Vremensku liniju vladara dinastije Nemanjića.</li>
+                    <li>Porodično stablo i veze između vladara.</li>
+                    <li>Manastire i zadužbine kao svedočanstva epohe.</li>
+                    <li>Edukativne igre, kvizove i zanimljivosti.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="home-sekcija">
+    <div class="container-fluid kartice-grid">
+        <article class="home-kartica">
+            <h3>Vladari</h3>
+            <p>
+                Pregled najznačajnijih vladara dinastije Nemanjića sa detaljnim opisima njihove vladavine.
+            </p>
+            <a asp-controller="Vladari" asp-action="Index" class="link-vise">Idi na vladare →</a>
+        </article>
+
+        <article class="home-kartica">
+            <h3>Manastiri i kultura</h3>
+            <p>
+                Manastiri, freske i kulturno nasleđe koje je nastajalo u vreme Nemanjića.
+            </p>
+            <a asp-controller="Manastiri" asp-action="Index" class="link-vise">Otkrij manastire →</a>
+        </article>
+
+        <article class="home-kartica">
+            <h3>Porodično stablo</h3>
+            <p>
+                Vizuelni prikaz porodičnih veza unutar dinastije, od Stefana Nemanje do Uroša Nejaka.
+            </p>
+            <a asp-controller="Dinastija" asp-action="Stablo" class="link-vise">Pogledaj stablo →</a>
+        </article>
+
+        <article class="home-kartica">
+            <h3>Web shop</h3>
+            <p>
+                Demo prodavnica sa fiktivnim knjigama, posterima i suvenirima inspirisanim Nemanjićima.
+            </p>
+            <a asp-controller="Shop" asp-action="Index" class="link-vise">Otvori web shop →</a>
+        </article>
+    </div>
+</section>
+
+<section class="home-sekcija sv-light">
+    <div class="container-fluid info-grid">
+        <div>
+            <h2>Zabava i učenje</h2>
+            <p>
+                Planirano je proširenje aplikacije sa kvizovima, kalkulatorom datuma Vaskrsa, mapom manastira
+                i pričama o Svetom Savi, kako bi učenje o istoriji bilo što interaktivnije.
+            </p>
+        </div>
+        <div>
+            <h2>Za portfolio</h2>
+            <p>
+                Projekat je zamišljen kao spoj istorijskog sadržaja i modernih web tehnologija (ASP.NET MVC, C#, HTML/CSS/JS),
+                sa fokusom na dobar dizajn i strukturu koda.
+            </p>
+        </div>
+    </div>
+</section>

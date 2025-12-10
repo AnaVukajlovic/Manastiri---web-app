@@ -1,0 +1,148 @@
+﻿@model IEnumerable<NemanjiciWebApp.Models.Vladar>
+
+@{
+    ViewData["Title"] = "Vladari dinastije Nemanjića";
+
+    // Očekuje se da u repozitorijumu imaš ove vladare sa tačnim imenima:
+    // "Stefan Nemanja", "Stefan Prvovenčani", "Stefan Radoslav", "Stefan Vladislav",
+    // "Stefan Uroš I", "Stefan Dragutin", "Stefan Milutin",
+    // "Stefan Uroš III Dečanski", "Stefan Dušan", "Stefan Uroš V"
+    var hronoloski = new[]
+    {
+        "Nemanja",
+        "Prvovenčani",
+        "Radoslav",
+        "Vladislav",
+        "Uroš I",
+        "Dragutin",
+        "Milutin",
+        "Dečanski",
+        "Dušan",
+        "Uroš V"
+    };
+
+    var vladariMapa = Model.ToList();
+    var vladariHronoloski = hronoloski
+        .Select(imeFrag => vladariMapa.FirstOrDefault(v => v.Ime.Contains(imeFrag)))
+        .Where(v => v != null)
+        .ToList();
+}
+
+<section class="hero-vladari">
+    <div class="hero-inner">
+        <h1>Vladari dinastije Nemanjića</h1>
+        <p>
+            Pregled glavnih vladara dinastije Nemanjića – od Stefana Nemanje do cara Dušana – sa fokusom na njihovu
+            vladavinu, zadužbine i ulogu u razvoju srednjovekovne Srbije.
+        </p>
+        <div class="hero-actions">
+            <a asp-controller="Dinastija" asp-action="Stablo" class="btn-sekundarno">Porodično stablo</a>
+        </div>
+    </div>
+</section>
+
+<section class="sekcija sv-light">
+    <div class="container-narrow">
+        <header class="sekcija-header">
+            <h2>Vremenska linija vladara</h2>
+            <p>Hronološki raspored glavnih vladara dinastije Nemanjića. Klikom na ime vladara otvara se detaljniji prikaz.</p>
+        </header>
+
+        <div class="timeline-horizontal-wrapper">
+            <div class="timeline-horizontal">
+                @foreach (var vladar in vladariHronoloski)
+                {
+                    <a href="@Url.Action("Detalji", "Vladari", new { id = vladar.Id })" class="timeline-horizontal-item">
+                        <span class="timeline-period">@vladar.PeriodVladavine</span>
+                        <span class="timeline-name">@vladar.Ime</span>
+                    </a>
+                }
+            </div>
+            <div class="timeline-helper-text">
+                <span>Prevuci levo–desno za prikaz svih vladara.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="sekcija">
+    <div class="container-narrow">
+        <header class="sekcija-header">
+            <h2>Vladari kao ktitori</h2>
+            <p>
+                Vladari Nemanjići podizali su manastire i crkve koji i danas čuvaju freske, rukopise i tragove njihove vladavine.
+                Kroz zadužbine vidi se spoj državne moći i duhovnog života tog doba.
+            </p>
+        </header>
+
+        <div class="ktitori-grid">
+            <article class="ktitor-blok">
+                <h3>Manastiri Nemanjića</h3>
+                <p>
+                    Upoznaj Studenicu, Hilandar, Dečane, Gračanicu i druge važne manastire povezane sa dinastijom.
+                </p>
+                <a asp-controller="Manastiri" asp-action="Index" class="btn-primarno">Idi na manastire</a>
+            </article>
+
+            <article class="ktitor-blok info">
+                <h3>Zadužbine kao svedočanstvo</h3>
+                <p>
+                    Manastiri su bili centri duhovnosti, pismenosti i umetnosti – mesta gde su nastajale povelje, zakoni i ikonopis.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="sekcija sv-light">
+    <div class="container-narrow">
+        <header class="sekcija-header">
+            <h2>Zabava i učenje</h2>
+            <p>
+                Planirane interaktivne aktivnosti koje će kroz igru približiti istoriju dinastije Nemanjića.
+            </p>
+        </header>
+
+        <div class="zabava-grid">
+            <article class="zabava-kartica">
+                <h3>Kviz o Nemanjićima</h3>
+                <p>
+                    Kratak kviz sa pitanjima o vladarima, bitkama, zadužbinama i važnim datumima.
+                </p>
+                <a href="#" class="btn-zabava disabled">Uskoro</a>
+            </article>
+
+            <article class="zabava-kartica">
+                <h3>Izračunaj datum Vaskrsa</h3>
+                <p>
+                    Alat za računanje datuma Vaskrsa u zadatoj godini – kombinacija istorije, kalendara i matematike.
+                </p>
+                <a href="#" class="btn-zabava disabled">Uskoro</a>
+            </article>
+
+            <article class="zabava-kartica">
+                <h3>Mapa manastira</h3>
+                <p>
+                    Pregled najvažnijih manastira na mapi, sa linkovima na detaljne opise.
+                </p>
+                <a asp-controller="Manastiri" asp-action="Index" class="btn-zabava">Otvori mapu manastira</a>
+            </article>
+
+            <article class="zabava-kartica">
+                <h3>Priče o Svetom Savi</h3>
+                <p>
+                    Kratke priče i legende o Svetom Savi, napisane tvojim rečima i prilagođene čitaocima.
+                </p>
+                <a href="#" class="btn-zabava disabled">Uskoro</a>
+            </article>
+
+            <article class="zabava-kartica">
+                <h3>Zanimljivosti i misterije</h3>
+                <p>
+                    Manje poznate epizode, anegdote i zanimljivosti iz života vladara i njihovog doba.
+                </p>
+                <a href="#" class="btn-zabava disabled">Uskoro</a>
+            </article>
+        </div>
+    </div>
+</section>

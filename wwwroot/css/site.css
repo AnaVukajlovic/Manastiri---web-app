@@ -1,0 +1,770 @@
+﻿:root {
+    --boja-svetla: #F2DDB6;
+    --boja-tamna: #734E20;
+    --boja-podloga: #D9C8B4;
+    --boja-tekst-siva: #8C7D70;
+    --boja-bordo: #40110D;
+}
+
+/* Osnovni stilovi */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    background-color: var(--boja-podloga);
+    color: var(--boja-bordo);
+}
+
+.page-wrapper {
+    min-height: calc(100vh - 140px); /* da footer bude pri dnu */
+}
+
+a {
+    color: var(--boja-tamna);
+}
+
+    a:hover {
+        color: var(--boja-bordo);
+    }
+
+/* Header / navbar */
+.main-header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.glavna-nav {
+    background-color: var(--boja-bordo);
+}
+
+.logo-text {
+    font-family: "Georgia", serif;
+    font-weight: 600;
+    color: var(--boja-svetla) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--boja-podloga);
+}
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: var(--boja-svetla);
+    }
+
+/* Footer */
+.main-footer {
+    background-color: var(--boja-bordo);
+    color: var(--boja-podloga);
+    margin-top: 32px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    gap: 16px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.footer-brand {
+    font-weight: 600;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: var(--boja-tekst-siva);
+}
+
+.footer-right {
+    display: flex;
+    gap: 12px;
+}
+
+    .footer-right a {
+        color: var(--boja-podloga);
+        font-size: 0.9rem;
+        text-decoration: none;
+    }
+
+        .footer-right a:hover {
+            text-decoration: underline;
+        }
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 6px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Početna: hero */
+.home-hero {
+    background: linear-gradient(135deg, var(--boja-svetla), var(--boja-podloga));
+    padding: 40px 0 34px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.hero-tekst h1 {
+    font-family: "Georgia", serif;
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+    color: var(--boja-bordo);
+}
+
+.hero-tekst p {
+    font-size: 1.02rem;
+    color: var(--boja-tekst-siva);
+    max-width: 520px;
+}
+
+.hero-dugmad {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-panel {
+    display: flex;
+    align-items: stretch;
+}
+
+.hero-kartica {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1px solid rgba(64,17,13,0.12);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+    .hero-kartica h2 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+
+    .hero-kartica ul {
+        padding-left: 18px;
+        margin-bottom: 0;
+    }
+
+    .hero-kartica li {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+    }
+
+/* Dugmad za početnu (koriste iste klase kao ranije) */
+.btn-primarno,
+.btn-sekundarno {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-primarno {
+    background: var(--boja-tamna);
+    color: #fff;
+}
+
+    .btn-primarno:hover {
+        background: var(--boja-bordo);
+        color: #fff;
+    }
+
+.btn-sekundarno {
+    background: transparent;
+    color: var(--boja-tamna);
+    border: 1px solid var(--boja-tamna);
+}
+
+    .btn-sekundarno:hover {
+        background: rgba(115,78,32,0.1);
+    }
+
+/* Početna: sekcije ispod hero */
+.home-sekcija {
+    padding: 28px 0;
+}
+
+    .home-sekcija.sv-light {
+        background-color: #f5efe5;
+    }
+
+.kartice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 18px;
+}
+
+.home-kartica {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid rgba(64,17,13,0.12);
+}
+
+    .home-kartica h3 {
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+        color: var(--boja-bordo);
+    }
+
+    .home-kartica p {
+        font-size: 0.95rem;
+        color: var(--boja-tekst-siva);
+        margin-bottom: 8px;
+    }
+
+.link-vise {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--boja-tamna);
+    font-weight: 500;
+}
+
+    .link-vise:hover {
+        text-decoration: underline;
+    }
+
+/* Info grid pri dnu */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+    gap: 18px;
+}
+
+    .info-grid h2 {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+        color: var(--boja-bordo);
+    }
+
+    .info-grid p {
+        font-size: 0.95rem;
+        color: var(--boja-tekst-siva);
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* Hero vladari – koristi iste boje kao početna */
+.hero-vladari {
+    background: linear-gradient(135deg, var(--boja-svetla), var(--boja-podloga));
+    padding: 32px 0 26px 0;
+    border-bottom: 1px solid rgba(64,17,13,0.12);
+}
+
+.hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+    .hero-inner h1 {
+        font-family: "Georgia", serif;
+        font-size: 2rem;
+        margin-bottom: 8px;
+        color: var(--boja-bordo);
+    }
+
+    .hero-inner p {
+        max-width: 650px;
+        font-size: 1rem;
+        color: var(--boja-tekst-siva);
+        margin-bottom: 12px;
+    }
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Sekcije i kontejner – već koristiš na početnoj, samo da postoji i ovde */
+.container-narrow {
+/*    max-width: 960px;*/
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 12px;
+}
+
+.sekcija {
+    padding: 28px 0;
+}
+
+    .sekcija.sv-light {
+        background-color: #f5efe5;
+    }
+
+.sekcija-header {
+    margin-bottom: 16px;
+}
+
+    .sekcija-header h2 {
+        font-family: "Georgia", serif;
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+        color: var(--boja-bordo);
+    }
+
+    .sekcija-header p {
+        margin: 0;
+        color: var(--boja-tekst-siva);
+        font-size: 0.98rem;
+    }
+
+/* Dugmad – već definisano za početnu */
+.btn-primarno,
+.btn-sekundarno,
+.btn-zabava {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.btn-primarno {
+    background: var(--boja-tamna);
+    color: #fff;
+}
+
+    .btn-primarno:hover {
+        background: var(--boja-bordo);
+        color: #fff;
+    }
+
+.btn-sekundarno {
+    background: transparent;
+    color: var(--boja-tamna);
+    border: 1px solid var(--boja-tamna);
+}
+
+    .btn-sekundarno:hover {
+        background: rgba(115,78,32,0.1);
+    }
+
+.btn-zabava {
+    background: var(--boja-tamna);
+    color: #fff;
+}
+
+    .btn-zabava:hover {
+        background: var(--boja-bordo);
+    }
+
+    .btn-zabava.disabled {
+        background: #c5c5c5;
+        border-color: #b5b5b5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+/* Horizontalni timeline – kružna “trakica” */
+.timeline-horizontal-wrapper {
+    margin-top: 8px;
+}
+
+.timeline-horizontal {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 12px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(64,17,13,0.18);
+    background: var(--boja-svetla);
+    scroll-behavior: smooth;
+}
+
+.timeline-horizontal-item {
+    flex: 0 0 auto;
+    min-width: 190px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid rgba(64,17,13,0.18);
+    text-decoration: none;
+    color: var(--boja-bordo);
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.15s ease-in-out;
+}
+
+    .timeline-horizontal-item .timeline-period {
+        display: block;
+        font-size: 0.86rem;
+        color: var(--boja-tekst-siva);
+    }
+
+    .timeline-horizontal-item .timeline-name {
+        display: block;
+        font-family: "Georgia", serif;
+        font-size: 0.98rem;
+        margin-top: 2px;
+    }
+
+    .timeline-horizontal-item:hover {
+        background: #f2ddc0;
+        border-color: var(--boja-tamna);
+        transform: translateY(-1px);
+    }
+
+.timeline-helper-text {
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: var(--boja-tekst-siva);
+}
+
+/* Vladari kao ktitori */
+.ktitori-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: stretch;
+}
+
+.ktitor-blok {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid rgba(64,17,13,0.14);
+}
+
+    .ktitor-blok.info {
+        background-color: var(--boja-svetla);
+    }
+
+    .ktitor-blok h3 {
+        font-size: 1.15rem;
+        margin-bottom: 6px;
+        color: var(--boja-bordo);
+    }
+
+    .ktitor-blok p {
+        font-size: 0.95rem;
+        color: var(--boja-tekst-siva);
+    }
+
+/* Zabava i učenje */
+.zabava-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.zabava-kartica {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid rgba(64,17,13,0.14);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+    .zabava-kartica h3 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+        color: var(--boja-bordo);
+    }
+
+    .zabava-kartica p {
+        font-size: 0.95rem;
+        color: var(--boja-tekst-siva);
+        margin-bottom: 10px;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ktitori-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-horizontal {
+        border-radius: 18px;
+    }
+}
+
+/* Hero za manastire – može ostati kao što smo već uradili */
+.manastiri-hero {
+    background: linear-gradient(135deg, var(--boja-svetla), var(--boja-podloga));
+    padding: 32px 0 24px 0;
+    border-bottom: 1px solid rgba(64,17,13,0.12);
+}
+
+.manastiri-hero-inner {
+    display: flex;
+    align-items: center;
+}
+
+.manastiri-hero-text h1 {
+    font-family: "Georgia", serif;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: var(--boja-bordo);
+}
+
+.manastiri-hero-text p {
+    font-size: 0.98rem;
+    color: var(--boja-tekst-siva);
+    max-width: 640px;
+}
+
+/* Vertikalna ruta kroz manastire */
+.manastiri-ruta {
+    position: relative;
+    margin-top: 10px;
+    padding-left: 26px;
+    border-left: 2px solid rgba(64,17,13,0.2);
+}
+
+.manastir-stanica {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.manastir-marker {
+    position: absolute;
+    left: -10px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--boja-tamna);
+    box-shadow: 0 0 0 4px rgba(242,221,182,0.9);
+}
+
+.manastir-sadrzaj {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(64,17,13,0.12);
+}
+
+    .manastir-sadrzaj h3 {
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+        color: var(--boja-bordo);
+    }
+
+    .manastir-sadrzaj p {
+        font-size: 0.94rem;
+        color: var(--boja-tekst-siva);
+        margin-bottom: 4px;
+    }
+
+/* Responsive prilagođavanje */
+@media (max-width: 768px) {
+    .manastiri-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .manastiri-ruta {
+        padding-left: 22px;
+    }
+}
+
+/* Forma za pretragu i sortiranje */
+.manastiri-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+    .manastiri-filter-form input[type="text"] {
+        flex: 1 1 220px;
+        padding: 6px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(64,17,13,0.2);
+        font-size: 0.95rem;
+    }
+
+    .manastiri-filter-form select {
+        flex: 0 0 200px;
+        padding: 6px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(64,17,13,0.2);
+        font-size: 0.95rem;
+    }
+
+/* Link na detalje */
+.manastir-link {
+    text-decoration: none;
+    color: var(--boja-bordo);
+}
+
+    .manastir-link:hover {
+        text-decoration: underline;
+    }
+
+/* Detalji manastira */
+.manastir-detalji {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.manastir-detalji-slika img {
+    border-radius: 10px;
+    border: 1px solid rgba(64,17,13,0.15);
+}
+
+.manastir-detalji-tekst h1 {
+    font-family: "Georgia", serif;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--boja-bordo);
+}
+
+.manastir-detalji-meta {
+    font-size: 0.95rem;
+    color: var(--boja-tekst-siva);
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .manastir-detalji {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Porodično stablo – osnovni wrapper */
+.stablo-wrapper {
+    overflow-x: auto;
+    padding: 12px 0;
+}
+
+/* Osnovno stablo bazirano na ugnježdenim UL/LI */
+.stablo ul {
+    padding-top: 20px;
+    position: relative;
+    padding-left: 0;
+}
+
+.stablo li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 10px 0 10px;
+}
+
+    /* Linije koje povezuju čvorove */
+    .stablo li::before,
+    .stablo li::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        border-top: 1px solid rgba(64,17,13,0.3);
+        width: 50%;
+        height: 20px;
+    }
+
+    .stablo li::before {
+        right: 50%;
+    }
+
+    .stablo li::after {
+        left: 50%;
+    }
+
+    /* Ukloni nepotrebne linije kod prvog/poslednjeg i jedinog deteta */
+    .stablo li:only-child::before,
+    .stablo li:only-child::after {
+        display: none;
+    }
+
+    .stablo li:only-child {
+        padding-top: 0;
+    }
+
+    .stablo li:first-child::before,
+    .stablo li:last-child::after {
+        border: 0 none;
+    }
+
+    .stablo li:last-child::before {
+        border-right: 1px solid rgba(64,17,13,0.3);
+        border-radius: 0 5px 0 0;
+    }
+
+    .stablo li:first-child::after {
+        border-left: 1px solid rgba(64,17,13,0.3);
+        border-radius: 5px 0 0 0;
+    }
+
+/* Vertikalna linija od roditelja do dece */
+.stablo ul ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid rgba(64,17,13,0.3);
+    width: 0;
+    height: 20px;
+}
+
+/* Stil za čvor */
+.cvor {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid rgba(64,17,13,0.25);
+    border-radius: 10px;
+    padding: 8px 10px;
+    min-width: 140px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.cvor-ime {
+    display: block;
+    font-family: "Georgia", serif;
+    font-size: 0.96rem;
+    color: var(--boja-bordo);
+    margin-bottom: 2px;
+}
+
+    .cvor-ime a {
+        text-decoration: none;
+        color: var(--boja-bordo);
+    }
+
+        .cvor-ime a:hover {
+            text-decoration: underline;
+        }
+
+.cvor-info {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--boja-tekst-siva);
+}
+
+/* Responsive – stablo da se lakše vidi na uskim ekranima */
+@media (max-width: 768px) {
+    .stablo li {
+        float: none;
+        display: inline-block;
+    }
+}
